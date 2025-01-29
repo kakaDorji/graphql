@@ -1,16 +1,13 @@
+version: '3.8'
 
 services:
-  postgres:
-    container_name: threads-db1
-    image: postgres
+  mongo:
+    image: mongo:latest
+    container_name: mongo
     ports:
-      - "5432:5432"
+      - "27017:27017"
     volumes:
-      - postgress_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_DB: threads
-      POSTGRES_PASSWORD: threads
+      - mongo-data:/data/db
 
 volumes:
-  postgress_data:
+  mongo-data:
